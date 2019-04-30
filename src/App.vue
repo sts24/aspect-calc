@@ -32,15 +32,15 @@
 
       <div class="code-output">
         <pre v-show="dimensions.newHeight"><code>
-          div {
+div {
 
-          }
+}
 
-          div::after {
-            content: '';
-            display: block;
-            padding-bottom: {{ dimensions.newHeight }}%;
-          }
+div::after {
+  content: '';
+  display: block;
+  padding-bottom: {{ dimensions.newHeight }}%;
+}
         </code></pre>
       </div>
 
@@ -95,18 +95,37 @@ export default {
 
 <style lang="scss">
 
+  $blue: #102046;
+  $orange: #e6621a;
+  $lightgray: #ebebeb;
+  $darkgray: #333;
+
   body {
     font-family: Helvetica, Arial, sans-serif;
     margin: 0;
+    background-color: $lightgray;
+    color: $darkgray;
   }
 
   #app {
     padding: 2rem;
+    margin: auto;
+    max-width: 1000px;
 
     header {
       text-align: center;
       margin-bottom: 4rem;
     }
+  }
+
+  h1 {
+    color: $blue;
+  }
+
+  a {
+    color: $orange;
+    text-decoration: none;
+    font-weight: bold;
   }
 
   .inputArea {
@@ -147,7 +166,7 @@ export default {
   }
 
   .sample-box {
-    background-color: darkblue;
+    background-color: $blue;
     width: 100%;
     height: 0;
   }
@@ -157,6 +176,7 @@ export default {
     color: white;
     border-radius: 0.5em;
     margin: 0;
+    padding: 1em 2em;
   }
 
   code {
