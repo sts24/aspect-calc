@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+
+    <header>
+      <h1>Aspect Ratio Calculator for CSS</h1>
+      <p>Created by <a href="https://www.smithscott.net">Scott Smith</a></p>
+    </header>
     
     <section class="inputArea">
       <div class="field">
@@ -80,6 +85,11 @@ export default {
 
   #app {
     padding: 2rem;
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
   }
 
   .inputArea {
