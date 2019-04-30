@@ -54,8 +54,6 @@ div::after {
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'app',
   data: function(){
@@ -67,9 +65,6 @@ export default {
         newHeight: '',
       }
     }
-  },
-  components: {
-    HelloWorld
   },
   methods: {
     makeCalc: function(data){ 
