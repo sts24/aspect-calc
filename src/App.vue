@@ -28,8 +28,25 @@
       </div>
     </section>
 
-    <div class="sample-box" v-bind:style="{ 'padding-bottom': dimensions.newHeight + '%' }"></div>
+    <section class="output-area">
 
+      <div class="code-output">
+        <pre v-show="dimensions.newHeight"><code>
+          div {
+
+          }
+
+          div::after {
+            content: '';
+            display: block;
+            padding-bottom: {{ dimensions.newHeight }}%;
+          }
+        </code></pre>
+      </div>
+
+      <div class="sample-box" v-bind:style="{ 'padding-bottom': dimensions.newHeight + '%' }" v-show="dimensions.newHeight"></div>
+
+    </section>
   </div>
 
   
@@ -123,10 +140,27 @@ export default {
     }
   }
 
+  .output-area {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 2rem;
+  }
+
   .sample-box {
     background-color: darkblue;
     width: 100%;
     height: 0;
+  }
+
+  pre {
+    background-color: #333;
+    color: white;
+    border-radius: 0.5em;
+    margin: 0;
+  }
+
+  code {
+    font-size: 1.5em;
   }
 
 </style>
