@@ -6,7 +6,7 @@
       <p>Created by <a href="https://www.smithscott.net">Scott Smith</a></p>
     </header>
     
-    <section class="inputArea">
+    <section class="input-area">
       <div class="field">
         <label for="oWidth">Original Width</label>
         <input type="number" id="oWidth" v-model="dimensions.oWidth" />
@@ -72,14 +72,9 @@ export default {
     HelloWorld
   },
   methods: {
-    makeCalc: function(data){
-      
+    makeCalc: function(data){ 
       let aspectCalc = (data.oHeight / data.oWidth) * data.newWidth;
-
-      console.log(aspectCalc);
-
       this.dimensions.newHeight = aspectCalc;
-
     }
   },
   watch: {
@@ -95,20 +90,28 @@ export default {
 
 <style lang="scss">
 
-  $blue: #102046;
-  $orange: #e6621a;
-  $lightgray: #ebebeb;
-  $darkgray: #333;
+  :root {
+    --blue: #102046;
+    --orange: #e6621a;
+    --lightgray: #ebebeb;
+    --darkgray: #333;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
 
   body {
     font-family: Helvetica, Arial, sans-serif;
     margin: 0;
-    background-color: $lightgray;
-    color: $darkgray;
+    background-color: var(--lightgray);
+    color: var(--darkgray);
+    border: 1rem solid var(--orange);
+    min-height: 100vh;
   }
 
   #app {
-    padding: 2rem;
+    padding: 2rem 0;
     margin: auto;
     max-width: 1000px;
 
@@ -119,16 +122,20 @@ export default {
   }
 
   h1 {
-    color: $blue;
+    color: var(--blue);
   }
 
   a {
-    color: $orange;
+    color: var(--orange);
     text-decoration: none;
     font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
-  .inputArea {
+  .input-area {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -161,18 +168,24 @@ export default {
 
   .output-area {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 2rem;
+    padding: 0 1rem;
+
+    @media (min-width: 768px){
+      padding: 0;
+      grid-template-columns: 2fr 1fr;
+    }
   }
 
   .sample-box {
-    background-color: $blue;
+    background-color: var(--blue);
     width: 100%;
     height: 0;
   }
 
   pre {
-    background-color: #333;
+    background-color:var(--darkgray);
     color: white;
     border-radius: 0.5em;
     margin: 0;
